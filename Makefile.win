@@ -1,0 +1,37 @@
+# Project: sortingRichardson
+# Makefile created by Dev-C++ 5.7.1
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = sortingRichardson.o dric.o bitmap2console.o sorting.o
+LINKOBJ  = sortingRichardson.o dric.o bitmap2console.o sorting.o
+LIBS     = -L"C:/program files (x86)/dev-cpp/MinGW64/lib" -L"C:/program files (x86)/dev-cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc "C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib/libgdi32.a"
+INCS     = -I"C:/program files (x86)/dev-cpp/MinGW64/include" -I"C:/program files (x86)/dev-cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/program files (x86)/dev-cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include"
+CXXINCS  = -I"C:/program files (x86)/dev-cpp/MinGW64/include" -I"C:/program files (x86)/dev-cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/program files (x86)/dev-cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include" -I"C:/program files (x86)/dev-cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include/c++"
+BIN      = sortingRichardson.exe
+CXXFLAGS = $(CXXINCS) -std=c++11
+CFLAGS   = $(INCS) -std=c++11
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+sortingRichardson.o: sortingRichardson.cpp
+	$(CPP) -c sortingRichardson.cpp -o sortingRichardson.o $(CXXFLAGS)
+
+dric.o: dric.cpp
+	$(CPP) -c dric.cpp -o dric.o $(CXXFLAGS)
+
+bitmap2console.o: bitmap2console.cpp
+	$(CPP) -c bitmap2console.cpp -o bitmap2console.o $(CXXFLAGS)
+
+sorting.o: sorting.cpp
+	$(CPP) -c sorting.cpp -o sorting.o $(CXXFLAGS)
